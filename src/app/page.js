@@ -7,7 +7,6 @@ import { getBlogPostList } from '@/helpers/file-helpers';
 
 async function Home() {
   const blogPosts = await getBlogPostList();
-
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.mainHeading}>
@@ -16,10 +15,10 @@ async function Home() {
       {blogPosts.map(({slug, ...delegated}) => (
         <BlogSummaryCard
           key={slug}
+          slug={slug}
           {...delegated}
         />
       ))}
-
     </div>
   );
 }
